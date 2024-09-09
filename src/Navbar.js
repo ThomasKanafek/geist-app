@@ -31,7 +31,7 @@ const handleNav = () => {
         <div className='bg-[#3D3E4B]'>
         <div className='bg-[#3D3E4B] flex justify-between items-center h-24 max-w-[1240px] mx-auto px-4 text-white'>
         {/* Logo */}
-        <div className='w-1/6 text-3xl font-bold text-[#df0000]'>Geist App</div>
+        <div className='w-1/2 text-3xl font-bold text-[#df0000] md:w-1/5'>Geist App</div>
   
   
         {/* Desktop Navigation */}
@@ -46,7 +46,7 @@ const handleNav = () => {
           ))}
         </ul>
 
-    <div className="flex gap-3 items-center py-1.5 px-6 my-auto text-sm tracking-normal text-center text-white whitespace-nowrap">
+    <div className="flex gap-3 items-center py-1.5 px-6 my-auto text-sm tracking-normal text-center text-white whitespace-nowrap hidden md:flex">
       <div className="flex  gap-4 items-center self-stretch my-auto">
         <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/dd0dfc33c8ad33a3cb51591394bbab87c1473191258672c30fb9f86f1a72e762?placeholderIfAbsent=true&apiKey=c7d02f63ce044a6c84a678051a1175c7" className="object-contain shrink-0 self-stretch my-auto w-6 aspect-square" alt="" />
         <div className="flexn flex-col self-stretch my-auto w-8">

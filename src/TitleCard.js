@@ -3,8 +3,8 @@ import React from 'react';
 function TitleCard({title}){
     return(
         <>
-        <div className="flex flex-col ml-5 max-md:ml-0 max-md:w-full">
-      <div className="flex flex-col items-start w-full text-teal-300 whitespace-nowrap max-md:mt-10">
+      <div className="flex flex-col max-md:ml-0 max-md:w-full">
+      <div className="flex flex-col items-start w-full text-teal-300 whitespace-nowrap max-md:mt-0">
         <div className="self-stretch text-sm text-white">{title.name}</div>
         {title.value && <div className="mt-1 text-2xl">{title.value}</div>}
         {title.percentage && (
