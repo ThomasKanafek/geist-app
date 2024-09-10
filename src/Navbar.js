@@ -10,11 +10,11 @@ const navigation = [
   ]
   // Array containing navigation items
   const navItems = [
-    { id: 1, text: 'Dashboard' },
-    // { id: 2, text: ' ' },
-    // { id: 3, text: 'Resources' },
-    // { id: 4, text: 'About' },
-    // { id: 5, text: 'Contact' },
+    { id: 1, text: 'Dashboard', href: '/' },
+    // { id: 2, text: ' ', href: '#' },
+    // { id: 3, text: 'Resources', href: '#' },
+    // { id: 4, text: 'About', href: '#' },
+    // { id: 5, text: 'Contact', href: '#' },
   ];
 
   
@@ -37,12 +37,13 @@ const handleNav = () => {
         {/* Desktop Navigation */}
         <ul className='w-full hidden md:flex'>
           {navItems.map(item => (
+            <a href={item.href}>
             <li
               key={item.id}
               className='p-4 hover:bg-[#121316] rounded-xl m-2 cursor-pointer duration-300 hover:text-white'
             >
               {item.text}
-            </li>
+            </li></a>
           ))}
         </ul>
 
@@ -64,7 +65,7 @@ const handleNav = () => {
         <ul
           className={
             nav
-              ? 'fixed md:hidden left-0 top-0 w-[60%] h-full border-r border-r-gray-900 bg-[#000300] ease-in-out duration-500'
+              ? 'fixed md:hidden left-0 top-0 w-[60%] h-full border-r border-r-[#282833] bg-[#282833] ease-in-out duration-500 shadow-2xl'
               : 'ease-in-out w-[60%] duration-500 fixed top-0 bottom-0 left-[-100%]'
           }
         >
@@ -73,12 +74,14 @@ const handleNav = () => {
   
           {/* Mobile Navigation Items */}
           {navItems.map(item => (
+            <a href={item.href}>
             <li
               key={item.id}
               className='p-4   hover:bg-[#121316] duration-300 hover:text-white cursor-pointer'
             >
               {item.text}
             </li>
+            </a>
           ))}
         </ul>
       </div>

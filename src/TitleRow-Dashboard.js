@@ -1,4 +1,9 @@
 import React from 'react';
+// import { Link, Route } from 'react-router-dom';
+import Dashboard from './Dashboard';
+import Venom from './Venom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
 
 
 const titles = [
@@ -15,10 +20,11 @@ const titles = [
         value: "68.1",
         percentage: "-12.5%"
       }
-    ]
+    ],
+    link: "#"
   },
   {
-    groupName: "Marvel Group",
+    groupName: "Venom",
     items: [
       {
         name: "Spider-Man",
@@ -30,7 +36,8 @@ const titles = [
         value: "55.7",
         percentage: "-1.2%"
       }
-    ]
+    ],
+    link: "/venom"
   }
 ];
 
@@ -39,6 +46,8 @@ function TitleRow(){
       return (
         <div className="container mx-auto py-2 ">
           {titles.map((group, groupIndex) => (
+            
+             <a href={group.link}>
             <div key={groupIndex} className="mb-4 bg-[#282833] rounded-lg hover:bg-black grid grid-cols-1 gap-4 md:grid-cols-0 lg:grid-cols-4">
               
               {/* Group Name */}
@@ -57,6 +66,8 @@ function TitleRow(){
                 ))}
           
             </div>
+            </a>
+      
           ))}
         </div>
       );
