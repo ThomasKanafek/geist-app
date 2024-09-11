@@ -1,5 +1,5 @@
 const darkTheme = {
-    backgroundColor: '#000000',
+    backgroundColor: '#282833',
     title: {
       textStyle: {
         color: '#fff',

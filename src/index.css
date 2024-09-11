@@ -19,3 +19,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+@layer utilities {
+  .font-bold {
+    font-family: 'd-dindin-bold', sans-serif;;
+    font-weight: normal; /* Use the desired font-weight */
+  }
+}

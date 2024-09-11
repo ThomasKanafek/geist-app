@@ -1,14 +1,15 @@
 import React, {useEffect} from 'react';
 import ReactECharts from 'echarts-for-react';
 import * as echarts from 'echarts'; // Import echarts core
-import chalkTheme from './theme/chalk-project.json'; // Adjust path as necessary
+// import chalkTheme from './theme/chalk-project.json'; // Adjust path as necessary
 // import darkTheme from './theme/dark';
+import geisttheme from './theme/geisttheme';
 
 
 const LineChart = () => {
 
 
-  
+  echarts.registerTheme("geist", geisttheme);
 
     // echarts.registerTheme('my_theme', {
     //     backgroundColor: '#282833' 
@@ -23,33 +24,98 @@ const LineChart = () => {
 
   // Define the options for the line chart
   const options = {
-    // title: {
-    //   text: 'Venom 7 days',
+    title: {
+      text: 'Venom 7 days',
+      left: 0,
+      textStyle: {
+        color: '#FFFFFF',
+        fontFamily: 'D-Din',
+      }
     
-    // },
+    },
+    
     tooltip: {
       trigger: 'axis',
     },
     xAxis: {
       type: 'category',
-      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+      data: [
+        '2024-08-17', '2024-08-17', '2024-08-17', '2024-08-17', '2024-08-17', '2024-08-17',
+        '2024-08-18', '2024-08-18', '2024-08-18', '2024-08-18', '2024-08-18', '2024-08-18', '2024-08-18', '2024-08-18', 
+        '2024-08-18', '2024-08-18', '2024-08-18', '2024-08-18', '2024-08-18', '2024-08-18', '2024-08-18', '2024-08-18',
+        '2024-08-19', '2024-08-19', '2024-08-19', '2024-08-19', '2024-08-19', '2024-08-19', '2024-08-19', '2024-08-19',
+        '2024-08-19', '2024-08-19', '2024-08-19', '2024-08-19', '2024-08-19', '2024-08-19',
+        '2024-08-20', '2024-08-20', '2024-08-20', '2024-08-20', '2024-08-20', '2024-08-20', '2024-08-20', '2024-08-20',
+        '2024-08-20', '2024-08-20', '2024-08-20', '2024-08-20', '2024-08-20',
+        '2024-08-21', '2024-08-21', '2024-08-21', '2024-08-21', '2024-08-21', '2024-08-21', '2024-08-21', '2024-08-21',
+        '2024-08-21', '2024-08-21', '2024-08-21', '2024-08-21', '2024-08-21', '2024-08-21', '2024-08-21', 
+        '2024-08-22', '2024-08-22', '2024-08-22', '2024-08-22', '2024-08-22', '2024-08-22', '2024-08-22', '2024-08-22',
+        '2024-08-22', '2024-08-22', '2024-08-22', '2024-08-22', '2024-08-22', '2024-08-22', 
+        '2024-08-23', '2024-08-23', '2024-08-23', '2024-08-23', '2024-08-23', '2024-08-23', '2024-08-23', '2024-08-23', 
+        '2024-08-23', '2024-08-23', '2024-08-23', '2024-08-23', '2024-08-23', '2024-08-23', 
+        '2024-08-24', '2024-08-24', '2024-08-24', '2024-08-24', '2024-08-24', '2024-08-24', '2024-08-24', '2024-08-24', 
+        '2024-08-24', '2024-08-24'
+      ],
+        
+      name: 'TIME',
+      nameLocation: 'middle',
+      nameTextStyle: {
+        padding: [15, 4, 5, 6],
+        color: '#FFFFFF'
+      } 
+    
+      
     },
     yAxis: {
       type: 'value',
+      name: 'VOLUME',
+        nameLocation: 'middle',
+        nameTextStyle: {
+          padding: [0, 0, 20, 6],
+          color: '#FFFFFF'
+        }, 
+      splitLine: {
+        lineStyle: {
+            color: '#4D505F',
+            type: [3, 5],
+            dashOffset: 5
+        }
+    } 
+    },
+    axisLine:{
+      lineStyle:{
+        color: '#000000'
+      }
     },
     series: [
       {
-        name: 'Sales',
+        name: 'Volume',
         type: 'line',
-        data: [150, 230, 224, 218, 135, 147, 260],
+        data: [
+          67, 59, 79, 55, 77, 51, 
+          0, 66, 43, 52, 100, 69, 84, 72, 81, 66, 56, 78, 78, 60, 69, 58, 0, 0, 
+          71, 34, 67, 42, 61, 59, 82, 53, 62, 55, 69, 54, 65, 56, 70, 
+          38, 43, 35, 52, 48, 81, 46, 66, 46, 55, 76, 54, 68, 43, 0,
+          0, 42, 31, 42, 49, 40, 55, 44, 63, 51, 60, 58, 47, 49, 41, 71, 0,
+          50, 32, 34, 29, 51, 43, 47, 68, 55, 57, 51, 54, 38, 56, 44, 0, 51, 
+          64, 35, 35, 29, 36, 38, 58, 41, 67, 44, 70, 62, 85, 47, 46, 41, 52, 
+          54, 59, 48, 52, 42, 60, 46, 56, 57, 68
+        ],
+    //  left: '10%'
       },
     ],
+    grid: {
+      left: 60,
+      top: 50,
+      right: 30,
+      bottom: 50
+    }
   };
 
 
   return (
-    <div>
-      <ReactECharts option={options} theme='dark' style={{height: '600px', width: '1200px'}} opts={{renderer: 'svg'}}/>
+    <div className='mb-8'>
+      <ReactECharts option={options} theme={'geist'} style={{height: '600px', width: '1200px'}} opts={{renderer: 'svg'}} notMerge={true} lazyUpdate={true} />
     </div>
   );
 };
