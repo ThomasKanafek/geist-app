@@ -3,7 +3,7 @@ import ReactECharts from 'echarts-for-react';
 import * as echarts from 'echarts'; // Import echarts core
 import geisttheme from './theme/geisttheme';
 
-const PieChartGlobal = ({ pieData, namePie, radius = ['40%', '70%'], startAngle = 180, endAngle = 360, colorScheme }) => {
+const PieChartGlobal = ({ pieData, namePie, radius = ['40%', '70%'], startAngle = 180, endAngle = 360, colorScheme, height = '500px', width = '600px' }) => {
   // Register custom theme
   echarts.registerTheme("geist", geisttheme);
 
@@ -45,7 +45,7 @@ const PieChartGlobal = ({ pieData, namePie, radius = ['40%', '70%'], startAngle 
       <ReactECharts
         option={options}
         theme={'geist'}
-        style={{ height: '500px', width: '600px' }}
+        style={{ height: height, width: width }}
         opts={{ renderer: 'svg' }}
         notMerge={true}
         lazyUpdate={true}

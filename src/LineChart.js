@@ -1,29 +1,13 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import ReactECharts from 'echarts-for-react';
 import * as echarts from 'echarts'; // Import echarts core
-// import chalkTheme from './theme/chalk-project.json'; // Adjust path as necessary
-// import darkTheme from './theme/dark';
 import geisttheme from './theme/geisttheme';
 
-
-const LineChart = () => {
-
-
+const LineChart = ({ options }) => {
   echarts.registerTheme("geist", geisttheme);
 
-    // echarts.registerTheme('my_theme', {
-    //     backgroundColor: '#282833' 
-    // });
-
-    // Register the custom theme
-    // echarts.registerTheme('dark', darkTheme);
-
-//   useEffect(() => {
-//     echarts.registerTheme('chalk', chalkTheme); // Register theme with ECharts
-//   }, []);
-
-  // Define the options for the line chart
-  const options = {
+  // Default options in case none are provided
+  const defaultOptions = {
     title: {
       text: 'Venom 7 days',
       left: 0,
@@ -31,9 +15,8 @@ const LineChart = () => {
         color: '#FFFFFF',
         fontFamily: 'D-Din',
       }
-    
     },
-    
+    animation: false,
     tooltip: {
       trigger: 'axis',
     },
@@ -56,31 +39,28 @@ const LineChart = () => {
         '2024-08-24', '2024-08-24', '2024-08-24', '2024-08-24', '2024-08-24', '2024-08-24', '2024-08-24', '2024-08-24', 
         '2024-08-24', '2024-08-24'
       ],
-        
       name: 'TIME',
       nameLocation: 'middle',
       nameTextStyle: {
         padding: [15, 4, 5, 6],
         color: '#FFFFFF'
       } 
-    
-      
     },
     yAxis: {
       type: 'value',
       name: 'VOLUME',
-        nameLocation: 'middle',
-        nameTextStyle: {
-          padding: [0, 0, 20, 6],
-          color: '#FFFFFF'
-        }, 
+      nameLocation: 'middle',
+      nameTextStyle: {
+        padding: [0, 0, 20, 6],
+        color: '#FFFFFF'
+      }, 
       splitLine: {
         lineStyle: {
-            color: '#4D505F',
-            type: [3, 5],
-            dashOffset: 5
+          color: '#4D505F',
+          type: [3, 5],
+          dashOffset: 5
         }
-    } 
+      }
     },
     axisLine:{
       lineStyle:{
@@ -101,8 +81,7 @@ const LineChart = () => {
           64, 35, 35, 29, 36, 38, 58, 41, 67, 44, 70, 62, 85, 47, 46, 41, 52, 
           54, 59, 48, 52, 42, 60, 46, 56, 57, 68
         ],
-    //  left: '10%'
-      },
+      }
     ],
     grid: {
       left: 60,
@@ -112,10 +91,16 @@ const LineChart = () => {
     }
   };
 
-
   return (
     <div className='mb-8'>
-      <ReactECharts option={options} theme={'geist'} style={{height: '600px', width: '1200px'}} opts={{renderer: 'svg'}} notMerge={true} lazyUpdate={true} />
+      <ReactECharts 
+        option={options || defaultOptions} 
+        theme={'geist'} 
+        style={{height: '600px', width: '1200px'}} 
+        opts={{renderer: 'svg'}} 
+        notMerge={true} 
+        lazyUpdate={true} 
+      />
     </div>
   );
 };
