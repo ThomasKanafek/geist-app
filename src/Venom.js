@@ -369,7 +369,7 @@ const Venom = () =>{
         
         <section className="flex overflow-hidden flex-col justify-center py-px w-full max-w-[1240px] mx-auto align-middle my-4 max-md:max-w-full px-0">
         <h1 className="text-3xl text-white py-4 font-bold">Top Trending Topics</h1>
-        <div className="container mx-auto mt-4 px-0 py-4  rounded-lg">
+        <div className="mt-4 px-0 py-4  rounded-lg">
             <TopTopicsAllList />
         </div>
         </section>
@@ -391,8 +391,8 @@ const Venom = () =>{
 
         <section className="flex overflow-hidden flex-col justify-center py-px w-full max-w-[1240px] mx-auto align-middle my-4 max-md:max-w-full px-0">
         <h1 className="text-3xl text-white py-4 font-bold">Related YouTube Queries</h1>
-        <div className="container mx-auto mt-0 px-0 py-4  rounded-lg">
-            <TrendingYoutubeAllList statData={topYouTubeQueries} />
+        <div className="grid mt-0 px-0 py-4  rounded-lg">
+            <TrendingYoutubeAllList statData={topYouTubeQueries} columns={2}/>
         </div>
         </section>
 

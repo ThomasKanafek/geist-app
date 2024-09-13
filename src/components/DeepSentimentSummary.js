@@ -21,7 +21,7 @@ const DeepSentimentSummary = ({ data, columnNames, numberOfColumns = 5 }) => {
   return (
     <section className="flex overflow-hidden flex-col justify-center py-px w-full max-w-[1240px] mx-auto align-middle my-8 max-md:max-w-full px-0">
       {/* Column description */}
-      <div className="container mx-auto px-0 py-0">
+      <div className="grid px-0 py-0">
         <div className={clsx('grid gap-4', gridColsClass)}>
           {columnNames.map((name, index) => (
             <div key={index} className="hidden md:flex py-4 pl-4 rounded-lg text-[#8D92A9] flex items-center">
@@ -32,7 +32,7 @@ const DeepSentimentSummary = ({ data, columnNames, numberOfColumns = 5 }) => {
       </div>
 
       {/* Render all rows from data */}
-      <div className="container mx-auto py-0">
+      <div className="grid py-0">
         {data.map((row, rowIndex) => (
           <div key={rowIndex} className={clsx('grid gap-4 mb-1 bg-[#282833] rounded-lg text-white hover:bg-black', gridColsClass)}>
             {row.map((item, colIndex) => {
